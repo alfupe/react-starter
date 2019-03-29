@@ -1,5 +1,26 @@
-$color: red;
+$text-color: gray;
 
 body {
-    color: $red;
+    color: $text-color;
+    font-family: sans-serif;
+}
+
+.list {
+    font-size: 18px;
+
+    &__item {
+        padding: 5px;
+
+        &:hover {
+            color: darken($text-color, 20);
+        }
+
+        &--even {
+            color: red;
+        }
+
+        &--odd {
+            color: blue;
+        }
+    }
 }
