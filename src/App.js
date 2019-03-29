@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import './assets/scss/main.scss';
+import List from './components/List/List';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+export default class App extends Component {
+    state = {
+        selectedNumber: '?'
+    };
+
+    numbers = [1, 2, 3, 4, 5];
+
+    updateNumber = number => {
+        this.setState({selectedNumber: number}, () => this.forceUpdate());
+    };
+
+    render() {
+        return (
+            // We need always a parent element
+            <Fragment>
+                <h1>Selected: ({this.state.selectedNumber})</h1>
+                <List numbers={this.numbers}
+                      onNumberSelected={this.updateNumber}
+                />
+            </Fragment>
+        );
+    }
 }
-
-export default App;
