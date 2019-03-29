@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables";
+
+.list {
+    font-size: 18px;
+
+    &__item {
+        padding: 5px;
+        display: block;
+
+        &:hover {
+            color: darken($text-color, 20);
+        }
+
+        &--even {
+            color: red;
+        }
+
+        &--odd {
+            color: blue;
+        }
+    }
+}
