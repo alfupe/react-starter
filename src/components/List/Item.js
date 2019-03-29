@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = props => (
-    <div className={`list__item ${props.isEven ? 'list__item--even' : 'list__item--odd'}`}
-         onClick={event => props.onNumberSelected(props.number)}>
+    <Link className={`list__item ${props.isEven ? 'list__item--even' : 'list__item--odd'}`}
+         to={`/${props.number}`}>
         {`${props.number} (${props.isEven ? 'even' : 'odd'})`}
-    </div>
+    </Link>
 );
 export default Item;

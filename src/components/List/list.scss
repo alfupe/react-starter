@@ -5,6 +5,7 @@
 
     &__item {
         padding: 5px;
+        display: block;
 
         &:hover {
             color: darken($text-color, 20);

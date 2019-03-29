@@ -4,10 +4,6 @@ import Item from './Item';
 import PropTypes from 'prop-types';
 
 export default class List extends Component {
-    static defaultProps = {
-        onNumberSelected: () => {}
-    };
-
     static propTypes = {
         numbers: PropTypes.arrayOf(PropTypes.number).isRequired
     };
@@ -19,7 +15,6 @@ export default class List extends Component {
                     <Item key={number}
                           number={number}
                           isEven={number % 2 === 0}
-                          onNumberSelected={this.props.onNumberSelected}
                     />
                 ))}
             </div>
