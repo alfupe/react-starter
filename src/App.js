@@ -24,7 +24,7 @@ export default class App extends Component {
         return (
             // We need always a parent element
             <div>
-                <h1>Inperative and wrong way: ({this.hidden && this.hidden.value})</h1>
+                <h1>Imperative and wrong way: ({this.hidden && this.hidden.value})</h1>
                 <ul className="list">
                     {this.numbers.map(number => {
                         const isEven = number % 2 === 0;
