@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import SubscribeForm from '../../components/SubscribeForm/SubscribeForm';
 
 export default class DetailPage extends Component {
     idItem = this.props.match.params.idItem;
@@ -7,6 +8,8 @@ export default class DetailPage extends Component {
         return (
             <Fragment>
                 {this.idItem}
+
+                <SubscribeForm />
             </Fragment>
         );
     }

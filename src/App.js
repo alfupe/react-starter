@@ -4,8 +4,6 @@ import AppRoutes from './routes/AppRoutes';
 import './assets/scss/main.scss';
 
 export default class App extends Component {
-
-
     render() {
         return (
             <Router>
