@@ -7,7 +7,7 @@ import DetailPage from '../_pages/DetailPage/DetailPage';
 export default () => (
     <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/:idItem" exact component={DetailPage} />
+        <Route path="/users/:idUser" exact component={DetailPage} />
         <Route component={Error404Page} />
     </Switch>
 );

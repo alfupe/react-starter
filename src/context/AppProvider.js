@@ -9,12 +9,25 @@ export default class AppProvider extends Component {
         services: {
             base: new BaseService(),
             user: new UserService()
-        }
+        },
+        darkMode: false
     };
+
+    toggleDarkMode = () => {
+        this.setState({darkMode: !this.state.darkMode});
+        const body = document.querySelector('body');
+        body.classList.toggle('dark-mode');
+    };
+
+    providedFunctions() {
+        return {
+            toggleDarkMode: () => this.toggleDarkMode()
+        }
+    }
 
     render() {
         return (
-            <AppContext.Provider value={this.state}>
+            <AppContext.Provider value={{...this.state, ...this.providedFunctions()}}>
                 {this.props.children}
             </AppContext.Provider>
         );

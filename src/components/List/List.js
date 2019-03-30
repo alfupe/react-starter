@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import './list.scss';
 import Item from './Item';
-import PropTypes from 'prop-types';
 
 export default class List extends Component {
-    static propTypes = {
-        numbers: PropTypes.arrayOf(PropTypes.number).isRequired
-    };
-
     render() {
         return (
             <div className="list">
-                {this.props.numbers.map(number => (
-                    <Item key={number}
-                          number={number}
-                          isEven={number % 2 === 0}
+                {this.props.users.length &&
+                this.props.users.map(user => (
+                    <Item key={user.id}
+                          user={user}
                     />
                 ))}
+                <pre>{JSON.stringify(this.props.users, null, 4)}</pre>
             </div>
         );
     }

@@ -2,4 +2,9 @@
 
 body {
     font-family: sans-serif;
+
+    &.dark-mode {
+        background-color: #1b1a1d;
+        color: #ffffff;
+    }
 }
