@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import List from '../../components/List/List';
-import DarkModeToggler from '../../components/DarkModeToggler/DarkModeToggler';
 import { AppContext } from '../../context/AppProvider';
+import { withLayout } from '../../HOC/WithLayout';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
     state = {
         users: []
     };
@@ -23,9 +23,7 @@ export default class HomePage extends Component {
     }
 
     render() {
-        return <Fragment>
-            <DarkModeToggler />
-            <List users={this.state.users} />
-        </Fragment>
+        return <List users={this.state.users} />
     }
 }
+export default withLayout(HomePage);

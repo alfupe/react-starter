@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import SubscribeForm from '../../components/SubscribeForm/SubscribeForm';
 import { AppContext } from '../../context/AppProvider';
+import { withLayout } from '../../HOC/WithLayout';
 
-export default class DetailPage extends Component {
+class DetailPage extends Component {
     state = {
         user: {}
     };
@@ -32,3 +33,4 @@ export default class DetailPage extends Component {
         );
     }
 }
+export default withLayout(DetailPage);
