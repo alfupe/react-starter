@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserService from '../services/UserService';
 import BaseService from '../services/BaseService';
+import ReactObserver from 'react-event-observer';
 
 export const AppContext = React.createContext({});
 
@@ -10,7 +11,8 @@ export default class AppProvider extends Component {
             base: new BaseService(),
             user: new UserService()
         },
-        darkMode: false
+        darkMode: false,
+        observer: ReactObserver()
     };
 
     toggleDarkMode = () => {
