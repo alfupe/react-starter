@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import List from '../../components/List/List';
 import { AppContext } from '../../context/AppProvider';
-import { withLayout } from '../../HOC/WithLayout';
 
-class HomePage extends Component {
-    state = {
-        users: []
-    };
-
+export default class EventPublisher extends Component {
     static contextType = AppContext;
 
     componentDidMount() {
@@ -19,11 +13,14 @@ class HomePage extends Component {
             .services
             .user
             .findUsers()
-            .then(users => this.setState({users}));
+            .then(users => this.context.observer.publish('usersReceived', users));
+    }
+
+    componentWillUnmount() {
+        this.context.observer.unsubscribe('usersReceived');
     }
 
     render() {
-        return <List users={this.state.users} />
+        return <button onClick={event => this.findUsers()}>Find Users again</button>;
     }
 }
-export default withLayout(HomePage);
